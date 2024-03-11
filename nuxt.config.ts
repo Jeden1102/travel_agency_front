@@ -20,10 +20,7 @@ export default defineNuxtConfig({
 
       {
         families: {
-          Lato: [100, 300, 400, 700, 900],
-          Roboto: true,
-          Anta: true,
-          "Cormorant Garamond": [300, 400, 500, 700],
+          Inter: [100, 200, 300, 400, 500, 600, 700, 800, 900],
         },
       },
     ],
