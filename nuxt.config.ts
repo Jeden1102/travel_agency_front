@@ -8,9 +8,6 @@ export default defineNuxtConfig({
       apiUrl: "",
     },
   },
-  image: {
-    dir: "assets/images",
-  },
   strapi: {
     url: process.env.NUXT_PUBLIC_API_URL || "http://localhost:1337",
   },
