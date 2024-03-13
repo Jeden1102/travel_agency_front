@@ -25,7 +25,11 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "nuxt-aos",
     "@nuxtjs/strapi",
+    "@nuxtjs/i18n",
   ],
+  i18n: {
+    vueI18n: "./i18n.config.ts",
+  },
   postcss: {
     plugins: {
       tailwindcss: {},

@@ -1,45 +1,44 @@
 <template>
-    <header class="container py-4 flex justify-between">
-        <img src="@/assets/images/logo.png" alt="Page logo" width="167" height="32">
-        <input type="text" placeholder="Search..." class="hidden md:block">
-        <AtomsBurger :onClick="() => { isMenuToggled = !isMenuToggled }" :is-menu-toggled="isMenuToggled" />
-        <div class="flex absolute top-0 flex-col transition-all w-full h-full z-10 bg-white justify-center gap-4" :class="{
-            '-left-full': !isMenuToggled,
-            'left-0': isMenuToggled,
-        }">
-            <nav class="flex flex-col gap-2 px-4">
-                <input type="text" id="first_name"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary"
-                    placeholder="Search..." required />
-                <NuxtLink class="text-2xl transition-opacity hover:opacity-60" to="/">Home</NuxtLink>
-                <div class="flex flex-col">
-                    <NuxtLink class="text-2xl transition-opacity hover:opacity-60" to="/">Explore</NuxtLink>
-                    <p class="mobile-only text-gray-500">Explore best destinations we offer.</p>
-                </div>
-                <div class="flex flex-col">
-                    <NuxtLink class="text-2xl transition-opacity hover:opacity-60" to="/">Our offer</NuxtLink>
-                    <p class="mobile-only text-gray-500">Checkout our offer.</p>
-                </div>
-                <NuxtLink class="text-2xl transition-opacity hover:opacity-60" to="/">Destination map</NuxtLink>
+    <header class="container-custom py-4 flex justify-between lg:items-center lg:gap-4">
+        <img class="z-30 h-fit" src="@/assets/images/logo.png" alt="Page logo" width="167" height="32">
 
-            </nav>
-            <div class="flex mt-8 flex-col px-4 border-t pt-4">
-                <div class="flex w-full justify-between">
-                    <button>Sign up</button>
-                    <NuxtLink class="atoms-button w-fit " to="/">Log in</NuxtLink>
+        <AtomsInput placeholder="Search..." custom-class="hidden lg:block lg:w-fit xl:ml-8" />
+        <AtomsBurger :onClick="() => { isMenuToggled = !isMenuToggled }" :is-menu-toggled="isMenuToggled" />
+
+        <div class="flex absolute top-0 flex-col transition-all w-full h-full z-10 bg-white pt-20 gap-4 lg:static lg:flex-row lg:pt-0 lg:items-center lg:justify-between"
+            :class="{
+                '-left-full': !isMenuToggled,
+                'left-0': isMenuToggled,
+            }">
+            <nav class="flex flex-col gap-2 px-4 lg:flex-row xl:gap-8">
+                <AtomsInput placeholder="Search..." custom-class="block lg:hidden" />
+                <NuxtLink class="text-2xl transition-opacity hover:opacity-60 lg:text-sm lg:hidden xl:block" to="/">{{
+                    $t('home') }}
+                </NuxtLink>
+                <div class="flex flex-col">
+                    <NuxtLink class="text-2xl transition-opacity hover:opacity-60 lg:text-sm" to="/">{{ $t('explore') }}
+                    </NuxtLink>
+                    <p class="mobile-only text-gray-500">{{ $t('menu.explore') }}</p>
                 </div>
-                <button>EN</button>
+                <div class="flex flex-col">
+                    <NuxtLink class="text-2xl transition-opacity hover:opacity-60 lg:text-sm" to="/">{{ $t('our_offer') }}
+                    </NuxtLink>
+                    <p class="mobile-only text-gray-500">{{ $t('menu.offer') }}</p>
+                </div>
+                <NuxtLink class="text-2xl transition-opacity hover:opacity-60 lg:text-sm" to="/">{{ $t('destination_map') }}
+                </NuxtLink>
+            </nav>
+
+            <div
+                class="flex mt-8 flex-col px-4 border-t pt-4 lg:flex-row-reverse lg:mt-0 lg:pt-0 lg:border-0 lg:items-center lg:gap-2 xl:gap-6">
+                <div class="flex w-full justify-between lg:gap-2 xl:gap-6">
+                    <button>{{ $t('sign_up') }}</button>
+                    <NuxtLink class="atoms-button w-fit " to="/">{{ $t('log_in') }}</NuxtLink>
+                </div>
+                <MoleculesLanguageSwitcher />
             </div>
-            <div class="bg-primary bg-opacity-80 text-white absolute bottom-0 w-full p-2 flex flex-col">
-                <a>
-                    <Icon name="material-symbols:alternate-email-rounded" />
-                    contact@viatours.com
-                </a>
-                <a>
-                    <Icon name="material-symbols:call-outline" />
-                    (80) 123 123 123
-                </a>
-            </div>
+
+            <MoleculesHeaderContact />
         </div>
     </header>
 </template>

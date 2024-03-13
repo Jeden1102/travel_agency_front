@@ -13,9 +13,12 @@
   .atoms-button {
     @apply flex items-center bg-primary text-white  px-8 py-4  rounded-xl hover:shadow-md transition-all hover:-translate-y-[1px] hover:opacity-90;
   }
-  .container {
-    @apply mx-auto px-4 md:px-8;
-    max-width: 1200px;
+  .atoms-input {
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary dark:focus:border-primary;
+  }
+  .container-custom {
+    @apply mx-auto px-4 md:px-8 max-w-full;
+    max-width: 1320px;
   }
   .container-slim {
     @apply mx-auto px-4 md:px-8;
