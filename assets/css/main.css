@@ -25,9 +25,9 @@
     max-width: 950px;
   }
   .mobile-only {
-    @apply block md:hidden;
+    @apply block lg:hidden;
   }
   .desktop-only {
-    @apply hidden md:block;
+    @apply hidden lg:block;
   }
 }

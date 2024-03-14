@@ -10,6 +10,7 @@ export default defineI18nConfig(() => ({
       search: "Search...",
       sign_up: "Sign up",
       log_in: "Log in",
+      go_back: "Go back",
       menu: {
         explore: "Explore best destinations we offer.",
         offer: "Checkout our offer.",

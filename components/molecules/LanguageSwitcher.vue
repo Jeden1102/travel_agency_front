@@ -1,10 +1,10 @@
 <template>
     <div class="relative">
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center justify-center gap-4">
             <label v-for="lang in languages" :key="lang.value" class="cursor-pointer">
                 <input type="radio" :value="lang.value" v-model="locale" class="hidden">
                 <div
-                    :class="{ 'bg-white bg-opacity-20 hover:bg-opacity-30 text-primary font-semibold px-3 py-1 rounded lg:px-0': locale === lang.value, 'text-gray-400 bg-opacity-10 hover:bg-opacity-20': locale !== lang.value }">
+                    :class="{ 'bg-white bg-opacity-20 hover:bg-opacity-30 text-primary font-semibold rounded lg:px-0': locale === lang.value, 'text-gray-400 bg-opacity-10 hover:bg-opacity-20': locale !== lang.value }">
                     {{ lang.label }}
                 </div>
             </label>
