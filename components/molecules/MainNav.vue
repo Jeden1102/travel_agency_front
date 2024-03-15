@@ -1,6 +1,6 @@
 <template>
     <nav class="flex flex-col gap-2 px-4 lg:flex-row xl:gap-8 lg:py-4"
-        @mouseleave="(event) => emits('menuChildChange', '')">
+        @mouseleave="() => emits('menuChildChange', '')">
         <button v-if="menuChild !== ''" class="flex fixed top-6 left-4 z-50 text-primary font-semibold lg:hidden"
             @click="() => showChildMenu('')">
             <span>
@@ -10,7 +10,7 @@
         </button>
 
         <AtomsInput placeholder="Search..." custom-class="block lg:hidden" />
-        <NuxtLink class="text-xl transition-opacity hover:opacity-60 lg:text-sm lg:hidden xl:block" to="/">{{
+        <NuxtLink @mouseenter="() => emits('menuChildChange', '')" class="text-xl transition-opacity hover:opacity-60 lg:text-sm lg:hidden xl:block" to="/">{{
             $t('home') }}
         </NuxtLink>
         <button @click="showChildMenu('explore')" @mouseenter="(event) => { hoverMenuItem(event, 'explore') }"
@@ -36,7 +36,7 @@
                 <Icon name="material-symbols:arrow-forward-ios" />
             </div>
         </button>
-        <NuxtLink class="text-xl transition-opacity hover:opacity-60 lg:text-sm" to="/">{{ $t('destination_map') }}
+        <NuxtLink @mouseenter="() => emits('menuChildChange', '')" class="text-xl transition-opacity hover:opacity-60 lg:text-sm" to="/">{{ $t('destination_map') }}
         </NuxtLink>
 
         <div :style="`${popoverLeft ? `left:${popoverLeft}px;` : ''} ${popoverHeight ? `height:${popoverHeight}px` : ''}`"
