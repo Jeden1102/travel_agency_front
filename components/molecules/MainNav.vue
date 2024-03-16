@@ -28,11 +28,6 @@
           hoverMenuItem(event, 'explore')
         }
       "
-      @mouseleave="
-        (event) => {
-          handleMouseLeave(event)
-        }
-      "
       class="flex w-full items-center justify-between lg:w-fit"
     >
       <div class="flex flex-col">
@@ -82,12 +77,7 @@
         '-right-full opacity-0': menuChild === '',
       }"
     >
-      <div class="flex flex-col" v-for="x in 5">
-        <p class="w-fit text-xl transition-opacity hover:opacity-60 lg:text-sm">
-          Poland
-        </p>
-        <p class="mobile-only text-sm text-gray-500">Europe</p>
-      </div>
+      <MoleculesMenuChild v-if="menuChild" :menu-child="menuChild" />
     </div>
   </nav>
 </template>
@@ -124,11 +114,6 @@
     emits('menuChildChange', menuName)
   }
 
-  const handleMouseLeave = (event) => {
-    const element = event.currentTarget
-    const classes = element.classList
-    console.log(classes, element)
-  }
   const isDesktop = () => {
     if (!window) return false
     return window.innerWidth > 991
