@@ -1,12 +1,10 @@
 <template>
-    <LayoutHeader />
-    <slot />
-    <LayoutFooter />
+  <LayoutHeader />
+  <slot />
+  <LayoutFooter />
 </template>
 <script>
-
-
-const test = () => {
+  const test = () => {
     setPageLayout('custom')
-}
+  }
 </script>
