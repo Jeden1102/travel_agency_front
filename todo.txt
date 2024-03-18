@@ -1,0 +1,2 @@
+1. Created some object type entries in panel.
+2. Fetch menus in menu child.

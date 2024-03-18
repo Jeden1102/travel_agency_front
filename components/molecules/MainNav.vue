@@ -71,13 +71,13 @@
 
     <div
       :style="`${popoverLeft ? `left:${popoverLeft}px;` : ''} ${popoverHeight ? `height:${popoverHeight}px` : ''}`"
-      class="popover fixed top-0 z-40 h-full w-full bg-white p-5 px-4 pt-16 transition-all duration-300 lg:absolute lg:left-0 lg:top-16 lg:h-fit lg:w-[600px] lg:rounded-xl lg:border lg:shadow-lg"
+      class="popover fixed top-0 z-40 h-full w-full gap-4 bg-white transition-all duration-300 md:flex-row lg:absolute lg:left-0 lg:top-16 lg:h-fit lg:w-[600px] lg:rounded-xl lg:border lg:shadow-lg"
       :class="{
         'right-0 opacity-100': menuChild !== '',
         '-right-full opacity-0': menuChild === '',
       }"
     >
-      <MoleculesMenuChild v-if="menuChild" :menu-child="menuChild" />
+      <MoleculesMenuChild :menu-child="menuChild" />
     </div>
   </nav>
 </template>
@@ -107,10 +107,11 @@
 
     if (!popoverElement) return
 
+    console.log(popoverElement)
+
     popoverLeft.value =
       targetElement.getBoundingClientRect().left -
       popoverElement.getBoundingClientRect().height / 2
-    popoverHeight.value = popoverElement.getBoundingClientRect().height
     emits('menuChildChange', menuName)
   }
 
