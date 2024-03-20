@@ -14,7 +14,7 @@
       <span>{{ $t('go_back') }}</span>
     </button>
 
-    <AtomsInput placeholder="Search..." custom-class="block lg:hidden" />
+    <AtomsInput placeholder="Search..." custom-class="block mb-6 lg:hidden" />
     <NuxtLink
       @mouseenter="() => emits('menuChildChange', '')"
       class="text-xl transition-opacity hover:opacity-60 lg:hidden lg:text-sm xl:block"
@@ -91,6 +91,9 @@
     menuChild: string
   }>()
 
+  const popoverLeft = ref<number | null>(null)
+  const popoverHeight = ref<number | null>(null)
+
   const showChildMenu = (menu: string) => {
     if (window.innerWidth > 991) return
     emits('menuChildChange', menu)
@@ -111,7 +114,7 @@
 
     popoverLeft.value =
       targetElement.getBoundingClientRect().left -
-      popoverElement.getBoundingClientRect().height / 2
+      popoverElement.getBoundingClientRect().width / 3
     emits('menuChildChange', menuName)
   }
 
@@ -119,7 +122,4 @@
     if (!window) return false
     return window.innerWidth > 991
   }
-
-  const popoverLeft = ref<number | null>(null)
-  const popoverHeight = ref<number | null>(null)
 </script>

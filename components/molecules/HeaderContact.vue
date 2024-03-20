@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute bottom-0 flex w-full flex-col bg-primary bg-opacity-80 p-2 text-white lg:hidden"
+    class="absolute bottom-0 flex w-full flex-row justify-between bg-gray-200 bg-opacity-80 px-4 py-2 text-gray-500 lg:hidden"
   >
     <a href="mailto:contact@viatours.com">
       <Icon name="material-symbols:alternate-email-rounded" />

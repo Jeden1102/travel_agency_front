@@ -11,13 +11,13 @@
     @apply uppercase text-gray-700 md:text-lg   md:capitalize md:text-white;
   }
   .atoms-button {
-    @apply flex items-center bg-primary text-white  px-8 py-4  rounded-xl hover:shadow-md transition-all hover:-translate-y-[1px] hover:opacity-90;
+    @apply flex items-center rounded-xl bg-primary  px-8 py-4  text-white transition-all hover:-translate-y-[1px] hover:opacity-90 hover:shadow-md;
   }
   .atoms-input {
-    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5;
+    @apply block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary focus:ring-primary;
   }
   .container-custom {
-    @apply mx-auto px-4 md:px-8 max-w-full;
+    @apply mx-auto max-w-full px-4 md:px-8;
     max-width: 1320px;
   }
   .container-slim {

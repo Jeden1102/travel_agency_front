@@ -28,10 +28,15 @@
     DestinationsResponse,
     Destination,
   } from '../../types/destination'
+  import type { ObjectTypesResponse } from '../../types/objectTypes'
+  import type { OffersResponse } from '../../types/offers'
+  import type { VacationTypesResponse } from '../../types/vacationTypes'
 
   const props = defineProps<{
     menuChild: string
   }>()
+
+  const graphql = useStrapiGraphQL()
 
   const menuItems = ref({})
 
@@ -69,8 +74,6 @@
   }
 
   const fetchExploreMenu = async () => {
-    const graphql = useStrapiGraphQL()
-
     const res = (await graphql(`
       query {
         destinations {
@@ -85,9 +88,11 @@
     `)) as DestinationsResponse
 
     if (!res) return
+
     const groupedItems = groupExploreItems(
       res.data.destinations.data as Destination[],
     )
+    console.log(groupedItems)
     menuItems.value = groupedItems
   }
 
@@ -103,12 +108,53 @@
 
       groupedItems[continent].push(destination)
     })
-
     return groupedItems
   }
 
-  const fetchOfferMenu = () => {
-    console.log('offer')
+  const fetchOfferMenu = async () => {
+    const objectTypes = (await graphql(`
+      query {
+        objectTypes {
+          data {
+            attributes {
+              name
+            }
+          }
+        }
+      }
+    `)) as ObjectTypesResponse
+
+    const offers = (await graphql(`
+      query {
+        offers {
+          data {
+            attributes {
+              name
+            }
+          }
+        }
+      }
+    `)) as OffersResponse
+
+    const vacationTypes = (await graphql(`
+      query {
+        vacationTypes {
+          data {
+            attributes {
+              name
+            }
+          }
+        }
+      }
+    `)) as VacationTypesResponse
+
+    const offerMenu = {
+      'Object types': objectTypes.data.objectTypes.data,
+      'Special offers': offers.data.offers.data,
+      'Vacation types': vacationTypes.data.vacationTypes.data,
+    }
+
+    menuItems.value = offerMenu
   }
 
   onMounted(() => {
